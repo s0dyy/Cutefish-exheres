@@ -1,0 +1,22 @@
+# Copyright 2021 Maxime Sorin <msorin@msorin.com>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=cutefishos ] cmake
+
+SUMMARY="FishUI is a GUI library based on QQC2 (Qt Quick Controls 2), every Cutefish application uses it"
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+DEPENDENCIES="
+    build+run:
+        kde-frameworks/kwindowsystem
+        x11-libs/libxcb
+        x11-libs/qtbase
+        x11-libs/qtdeclarative
+        x11-libs/qtquickcontrols2
+        x11-libs/qtx11extras
+"
+
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/Use-CMAKE_INSTALL_LIBDIR-instead-of-hardcoded.patch" )
+

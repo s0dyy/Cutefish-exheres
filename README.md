@@ -9,7 +9,7 @@ https://cutefishos.com/
 - [ ] filemanager
 - [ ] terminal
 - [ ] statusbar
-- [ ] fishui
+- [X] fishui
 - [ ] screenlocker
 - [ ] icons
 - [ ] wallpapers
