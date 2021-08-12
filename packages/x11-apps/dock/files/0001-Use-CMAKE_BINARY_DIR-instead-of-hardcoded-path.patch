@@ -1,0 +1,24 @@
+From a43dd114e2fd3d9dd9109d7acb6f414081d6f3fc Mon Sep 17 00:00:00 2001
+From: s0dyy <msorin@msorin.com>
+Date: Fri, 13 Aug 2021 00:43:34 +0200
+Subject: [PATCH] Use CMAKE_BINARY_DIR instead of hardcoded path
+Upstream: Yes, it can be removed in the next release
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index db3ee9f..efd1ea6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -58,5 +58,5 @@ qt5_create_translation(QM_FILES ${TS_FILES})
+ add_custom_target(translations DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
+ add_dependencies(${PROJECT_NAME} translations)
+ 
+-install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION /usr/bin)
++install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+ install(FILES ${QM_FILES} DESTINATION /usr/share/${PROJECT_NAME}/translations)
+-- 
+2.32.0
+

@@ -14,7 +14,7 @@ https://cutefishos.com/
 - [ ] icons
 - [ ] wallpapers
 - [ ] settings
-- [ ] dock
+- [X] dock
 - [X] libcutefish
 - [ ] kwin-plugins
 - [ ] qt-plugins
