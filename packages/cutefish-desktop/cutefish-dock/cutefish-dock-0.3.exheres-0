@@ -1,7 +1,7 @@
 # Copyright 2021 Maxime Sorin <msorin@msorin.com>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=cutefishos ] cmake
+require github [ user=cutefishos project=dock ] cmake
 
 SUMMARY="CutefishOS application dock"
 LICENCES="GPL-3"

@@ -1,9 +1,9 @@
 # Copyright 2021 Maxime Sorin <msorin@msorin.com>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=cutefishos ] cmake
+require github [ user=cutefishos project='qt-plugins' ] cmake
 
-SUMMARY="CutefishOS's full-screen application launcher"
+SUMMARY="Unify Qt application style of CutefishOS"
 LICENCES="GPL-3"
 SLOT="0"
 PLATFORMS="~amd64"
@@ -11,9 +11,10 @@ MYOPTIONS=""
 DEPENDENCIES="
     build+run:
         kde-frameworks/kwindowsystem
+        lxqt/libqtxdg
+        x11-libs/dbusmenu-qt
         x11-libs/qtbase
-        x11-libs/qtdeclarative
+        x11-libs/qtquickcontrols2
+        x11-libs/qtx11extras
 "
-
-DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/0001-Use-CMAKE_INSTALL_BINDIR-instead-of-hardcoded-path.patch" )
 
