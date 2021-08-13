@@ -14,7 +14,7 @@ https://cutefishos.com/
 - [ ] kwin-plugins
 - [X] launcher
 - [X] libcutefish
-- [ ] qt-plugins
+- [X] qt-plugins
 - [ ] screenlocker
 - [ ] sddm-theme
 - [ ] settings
