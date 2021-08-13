@@ -22,4 +22,4 @@ https://cutefishos.com/
 - [ ] terminal
 - [ ] texteditor
 - [ ] videoplayer
-- [ ] wallpapers
+- [X] wallpapers
