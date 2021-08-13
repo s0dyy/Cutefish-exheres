@@ -8,7 +8,7 @@ https://cutefishos.com/
 - [ ] core
 - [ ] filemanager
 - [ ] terminal
-- [ ] statusbar
+- [X] statusbar
 - [X] fishui
 - [ ] screenlocker
 - [ ] icons

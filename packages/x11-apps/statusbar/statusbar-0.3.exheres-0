@@ -1,0 +1,21 @@
+# Copyright 2021 Maxime Sorin <msorin@msorin.com>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=cutefishos ] cmake
+
+SUMMARY="The status bar at the top displays the current status of the system, such as time, system tray, etc"
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+DEPENDENCIES="
+    build+run:
+        kde-frameworks/kwindowsystem
+        x11-libs/libxcb
+        x11-libs/qtbase
+        x11-libs/qtdeclarative
+        x11-libs/qtx11extras
+"
+
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/0001-Use-CMAKE_INSTALL_BINDIR-instead-of-hardcoded-path.patch" )
+
