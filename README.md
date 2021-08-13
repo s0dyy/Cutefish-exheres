@@ -10,7 +10,7 @@ https://cutefishos.com/
 - [X] dock
 - [ ] filemanager
 - [X] fishui
-- [ ] icons
+- [X] icons
 - [ ] kwin-plugins
 - [X] launcher
 - [X] libcutefish
