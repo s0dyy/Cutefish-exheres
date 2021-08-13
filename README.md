@@ -5,19 +5,21 @@ https://cutefishos.com/
 
 **Work in progress :**
 
-- [ ] core
-- [ ] filemanager
-- [ ] terminal
-- [X] statusbar
-- [X] fishui
-- [ ] screenlocker
-- [ ] icons
-- [ ] wallpapers
-- [ ] settings
-- [X] dock
-- [X] libcutefish
-- [ ] kwin-plugins
-- [ ] qt-plugins
 - [ ] calculator
-- [ ] videoplayer
+- [ ] core
+- [X] dock
+- [ ] filemanager
+- [X] fishui
+- [ ] icons
+- [ ] kwin-plugins
+- [X] launcher
+- [X] libcutefish
+- [ ] qt-plugins
+- [ ] screenlocker
+- [ ] sddm-theme
+- [ ] settings
+- [X] statusbar
+- [ ] terminal
 - [ ] texteditor
+- [ ] videoplayer
+- [ ] wallpapers

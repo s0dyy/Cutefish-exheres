@@ -1,0 +1,38 @@
+From bebdaacdf0825832231bbab4f64705fd88e89451 Mon Sep 17 00:00:00 2001
+From: s0dyy <msorin@msorin.com>
+Date: Fri, 13 Aug 2021 21:18:47 +0200
+Subject: [PATCH] Use CMAKE_INSTALL_BINDIR instead of hardcoded path
+Upstream: Yes, it can be removed in the next release
+
+---
+ CMakeLists.txt | 2 +-
+ README.md      | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 709391a..b735cb3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -55,5 +55,5 @@ qt5_create_translation(QM_FILES ${TS_FILES})
+ add_custom_target(translations DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
+ add_dependencies(${PROJECT_NAME} translations)
+ 
+-install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION /usr/bin)
++install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+ install(FILES ${QM_FILES} DESTINATION /usr/share/${PROJECT_NAME}/translations)
+diff --git a/README.md b/README.md
+index 344f832..5b73a1a 100644
+--- a/README.md
++++ b/README.md
+@@ -17,7 +17,7 @@ sudo apt install gcc cmake qtbase5-dev qml-module-qtquick-controls2 qml-module-o
+ ```
+ mkdir build
+ cd build
+-cmake ..
++cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
+ make
+ sudo make install
+ ```
+-- 
+2.32.0
+

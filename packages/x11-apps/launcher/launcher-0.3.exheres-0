@@ -1,0 +1,19 @@
+# Copyright 2021 Maxime Sorin <msorin@msorin.com>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=cutefishos ] cmake
+
+SUMMARY="CutefishOS's full-screen application launcher"
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+DEPENDENCIES="
+    build+run:
+        kde-frameworks/kwindowsystem
+        x11-libs/qtbase
+        x11-libs/qtdeclarative
+"
+
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/0001-Use-CMAKE_INSTALL_BINDIR-instead-of-hardcoded-path.patch" )
+
