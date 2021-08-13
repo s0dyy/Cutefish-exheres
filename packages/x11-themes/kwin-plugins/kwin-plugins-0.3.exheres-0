@@ -1,0 +1,19 @@
+# Copyright 2021 Maxime Sorin <msorin@msorin.com>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=cutefishos ] cmake
+
+SUMMARY="CutefishOS KWin Plugins"
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+DEPENDENCIES="
+    build+run:
+        kde-frameworks/kcoreaddons
+        kde/kdecoration
+        kde/kwin
+        x11-libs/qtbase
+        dev-libs/libepoxy
+"
+

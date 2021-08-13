@@ -11,7 +11,7 @@ https://cutefishos.com/
 - [ ] filemanager
 - [X] fishui
 - [X] icons
-- [ ] kwin-plugins
+- [X] kwin-plugins
 - [X] launcher
 - [X] libcutefish
 - [X] qt-plugins
