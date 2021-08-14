@@ -1,0 +1,39 @@
+From 3c45cb6cab4fe1fec1e1473d90a6197e03fa7c16 Mon Sep 17 00:00:00 2001
+From: s0dyy <msorin@msorin.com>
+Date: Sun, 15 Aug 2021 01:09:57 +0200
+Subject: [PATCH] Use CMAKE_INSTALL_BINDIR instead of hardcoded path
+
+---
+ CMakeLists.txt | 2 +-
+ README.md      | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5a62abf..412bdea 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -93,7 +93,7 @@ qt5_create_translation(QM_FILES ${TS_FILES})
+ add_custom_target(translations DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
+ add_dependencies(${PROJECT_NAME} translations)
+ 
+-install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION /usr/bin)
++install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+ 
+ install(FILES
+     cutefish-settings.desktop
+diff --git a/README.md b/README.md
+index 0307655..201518d 100644
+--- a/README.md
++++ b/README.md
+@@ -18,7 +18,7 @@ sudo apt install cmake debhelper extra-cmake-modules libicu-devlibcrypt-dev libf
+ ```shell
+ mkdir build
+ cd build
+-cmake ..
++cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
+ make
+ sudo make install
+ ```
+-- 
+2.32.0
+

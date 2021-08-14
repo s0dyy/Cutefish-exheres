@@ -15,7 +15,7 @@ https://cutefishos.com/
 - [X] cutefish-qt-plugins
 - [X] cutefish-screenlocker
 - [X] cutefish-sddm-theme
-- [ ] cutefish-settings
+- [X] cutefish-settings
 - [X] cutefish-statusbar
 - [ ] cutefish-terminal
 - [ ] cutefish-texteditor

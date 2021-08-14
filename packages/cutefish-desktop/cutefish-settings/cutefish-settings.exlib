@@ -1,0 +1,24 @@
+# Copyright 2021 Maxime Sorin <msorin@msorin.com>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=cutefishos project='settings' ] cmake
+
+SUMMARY="The System Settings application for Cutefish Desktop"
+LICENCES="GPL-3"
+SLOT="0"
+MYOPTIONS=""
+DEPENDENCIES="
+    build+run:
+        dev-libs/icu:=
+        media-libs/fontconfig
+        media-libs/freetype
+        x11-libs/libX11
+        x11-libs/libXcursor
+        x11-libs/libXfixes
+        x11-libs/qtbase
+        x11-libs/qtdeclarative
+        x11-libs/qtx11extras
+"
+
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/0001-Use-CMAKE_INSTALL_BINDIR-instead-of-hardcoded-path.patch" )
+
