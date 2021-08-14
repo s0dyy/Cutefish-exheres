@@ -1,0 +1,53 @@
+From 074e8ea18d5d2c65c80769b7b84376c22ee556b3 Mon Sep 17 00:00:00 2001
+From: s0dyy <msorin@msorin.com>
+Date: Sun, 15 Aug 2021 00:41:25 +0200
+Subject: [PATCH] Use CMAKE_INSTALL_BINDIR instead of hardcoded path
+
+---
+ README.md                   | 2 +-
+ checkpass/CMakeLists.txt    | 4 ++--
+ screenlocker/CMakeLists.txt | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/README.md b/README.md
+index 89a8035..236650d 100644
+--- a/README.md
++++ b/README.md
+@@ -17,7 +17,7 @@ sudo apt install libpam0g-dev libx11-dev -y
+ ```shell
+ mkdir build
+ cd build
+-cmake ..
++cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
+ make
+ ```
+ 
+diff --git a/checkpass/CMakeLists.txt b/checkpass/CMakeLists.txt
+index 7dbcb75..1c612ab 100644
+--- a/checkpass/CMakeLists.txt
++++ b/checkpass/CMakeLists.txt
+@@ -26,8 +26,8 @@ else()
+     message(STATUS "PAM not found, will install a SUID-kcheckpass")
+ endif()
+ install(TARGETS ccheckpass
+-    DESTINATION /usr/bin
++    DESTINATION ${CMAKE_INSTALL_BINDIR}
+     PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE ${checkpass_suid}
+     )
+ 
+-#EXTRA_DIST = README
+\ No newline at end of file
++#EXTRA_DIST = README
+diff --git a/screenlocker/CMakeLists.txt b/screenlocker/CMakeLists.txt
+index 158105b..2b8e62d 100644
+--- a/screenlocker/CMakeLists.txt
++++ b/screenlocker/CMakeLists.txt
+@@ -26,4 +26,4 @@ target_link_libraries(cutefish-screenlocker
+     ${X11_LIBRARIES}
+ )
+ 
+-install(TARGETS cutefish-screenlocker RUNTIME DESTINATION /usr/bin)
++install(TARGETS cutefish-screenlocker RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+-- 
+2.32.0
+

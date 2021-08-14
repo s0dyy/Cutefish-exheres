@@ -13,7 +13,7 @@ https://cutefishos.com/
 - [X] cutefish-kwin-plugins
 - [X] cutefish-launcher
 - [X] cutefish-qt-plugins
-- [ ] cutefish-screenlocker
+- [X] cutefish-screenlocker
 - [X] cutefish-sddm-theme
 - [ ] cutefish-settings
 - [X] cutefish-statusbar

@@ -1,0 +1,20 @@
+# Copyright 2021 Maxime Sorin <msorin@msorin.com>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=cutefishos project='screenlocker' ] cmake
+
+SUMMARY="CutefishOS System screen locker"
+LICENCES="GPL-3"
+SLOT="0"
+MYOPTIONS=""
+DEPENDENCIES="
+    build+run:
+        sys-libs/pam
+        x11-libs/libX11
+        x11-libs/qtbase
+        x11-libs/qtdeclarative
+        x11-libs/qtx11extras
+"
+
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/0001-Use-CMAKE_INSTALL_BINDIR-instead-of-hardcoded-path.patch" )
+
