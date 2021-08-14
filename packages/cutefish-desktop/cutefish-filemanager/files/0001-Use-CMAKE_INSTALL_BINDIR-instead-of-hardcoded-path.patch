@@ -1,0 +1,24 @@
+From 45b21c6fed036c5432443c2a1e786f691fd61a09 Mon Sep 17 00:00:00 2001
+From: s0dyy <msorin@msorin.com>
+Date: Sun, 15 Aug 2021 01:33:01 +0200
+Subject: [PATCH] Use CMAKE_INSTALL_BINDIR instead of hardcoded path
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d6400de..18fcb62 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -71,6 +71,6 @@ qt5_create_translation(QM_FILES ${TS_FILES})
+ add_custom_target(translations DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
+ add_dependencies(cutefish-filemanager translations)
+ 
+-install(TARGETS cutefish-filemanager RUNTIME DESTINATION /usr/bin)
++install(TARGETS cutefish-filemanager RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+ install(FILES cutefish-filemanager.desktop DESTINATION "/usr/share/applications")
+ install(FILES ${QM_FILES} DESTINATION /usr/share/cutefish-filemanager/translations)
+-- 
+2.32.0
+

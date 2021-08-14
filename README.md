@@ -8,7 +8,7 @@ https://cutefishos.com/
 - [ ] cutefish-calculator
 - [ ] cutefish-core
 - [X] cutefish-dock
-- [ ] cutefish-filemanager
+- [X] cutefish-filemanager
 - [X] cutefish-icons
 - [X] cutefish-kwin-plugins
 - [X] cutefish-launcher
