@@ -11,6 +11,7 @@ MYOPTIONS=""
 DEPENDENCIES="
     build+run:
         kde-frameworks/kwindowsystem
+        media-libs/fishui
         x11-libs/libxcb
         x11-libs/qtbase
         x11-libs/qtdeclarative
