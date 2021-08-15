@@ -1,0 +1,23 @@
+# Copyright 2021 Maxime Sorin <msorin@msorin.com>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=cutefishos ] cmake
+
+SUMMARY="Cutefish System Library"
+LICENCES="GPL-3"
+SLOT="0"
+MYOPTIONS=""
+DEPENDENCIES="
+    build+run:
+        kde-frameworks/kcoreaddons
+        kde-frameworks/kio
+        kde-frameworks/libkscreen
+        kde-frameworks/modemmanager-qt
+        kde-frameworks/networkmanager-qt
+        x11-libs/qtbase
+        x11-libs/qtdeclarative
+        x11-libs/qtquickcontrols2
+        x11-libs/qtsensors
+        x11-libs/qtx11extras
+"
+
