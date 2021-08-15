@@ -1,6 +1,8 @@
 # Copyright 2021 Maxime Sorin <msorin@msorin.com>
 # Distributed under the terms of the GNU General Public License v2
 
+GITHUB_BRANCH="main"
+
 require cutefish-qt-plugins
 
 PLATFORMS="~amd64"
