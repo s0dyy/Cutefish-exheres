@@ -1,0 +1,21 @@
+# Copyright 2021 Maxime Sorin <msorin@msorin.com>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=cutefishos project=dock ] cmake
+
+SUMMARY="CutefishOS application dock"
+LICENCES="GPL-3"
+SLOT="0"
+MYOPTIONS=""
+DEPENDENCIES="
+    build+run:
+        kde-frameworks/kwindowsystem
+        media-libs/fishui
+        x11-libs/qtbase
+        x11-libs/qtdeclarative
+        x11-libs/qtquickcontrols2
+        x11-libs/qtx11extras
+    run: 
+        sys-libs/libcutefish
+"
+
