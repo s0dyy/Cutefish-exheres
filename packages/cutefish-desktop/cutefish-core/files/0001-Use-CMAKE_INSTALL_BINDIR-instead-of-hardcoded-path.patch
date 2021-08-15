@@ -1,0 +1,150 @@
+From 37ed57db67397ed7f80431cdb93128fae1ff807c Mon Sep 17 00:00:00 2001
+From: s0dyy <msorin@msorin.com>
+Date: Sun, 15 Aug 2021 02:07:19 +0200
+Subject: [PATCH] Use CMAKE_INSTALL_BINDIR instead of hardcoded path
+
+---
+ README.md                        | 2 +-
+ chotkeys/CMakeLists.txt          | 2 +-
+ cpufreq/CMakeLists.txt           | 2 +-
+ cupdatecursor/CMakeLists.txt     | 2 +-
+ polkit-agent/CMakeLists.txt      | 4 ++--
+ powerman/CMakeLists.txt          | 2 +-
+ screen-brightness/CMakeLists.txt | 2 +-
+ session/CMakeLists.txt           | 2 +-
+ settings-daemon/CMakeLists.txt   | 2 +-
+ shutdown-ui/CMakeLists.txt       | 2 +-
+ xembed-sni-proxy/CMakeLists.txt  | 2 +-
+ 11 files changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/README.md b/README.md
+index 786c4ee..75263b5 100644
+--- a/README.md
++++ b/README.md
+@@ -26,7 +26,7 @@ pulseaudio
+ ```shell
+ mkdir build
+ cd build
+-cmake ..
++cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
+ make
+ ```
+ 
+diff --git a/chotkeys/CMakeLists.txt b/chotkeys/CMakeLists.txt
+index 1c1ce39..62e8c66 100644
+--- a/chotkeys/CMakeLists.txt
++++ b/chotkeys/CMakeLists.txt
+@@ -17,4 +17,4 @@ target_link_libraries(chotkeys
+     KF5::GlobalAccel
+ )
+ 
+-install(TARGETS chotkeys RUNTIME DESTINATION /usr/bin)
++install(TARGETS chotkeys RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+diff --git a/cpufreq/CMakeLists.txt b/cpufreq/CMakeLists.txt
+index 01fb736..7676a33 100644
+--- a/cpufreq/CMakeLists.txt
++++ b/cpufreq/CMakeLists.txt
+@@ -13,5 +13,5 @@ target_link_libraries(${TARGET}
+         Qt5::X11Extras
+ )
+ 
+-install(TARGETS ${TARGET} DESTINATION /usr/bin)
++install(TARGETS ${TARGET} DESTINATION ${CMAKE_INSTALL_BINDIR})
+ install(FILES org.cutefish.cpufreq.pkexec.policy DESTINATION /usr/share/polkit-1/actions/)
+diff --git a/cupdatecursor/CMakeLists.txt b/cupdatecursor/CMakeLists.txt
+index 42bff66..d88080d 100644
+--- a/cupdatecursor/CMakeLists.txt
++++ b/cupdatecursor/CMakeLists.txt
+@@ -14,4 +14,4 @@ target_link_libraries(cupdatecursor
+     X11::Xcursor
+ )
+ 
+-install(TARGETS cupdatecursor DESTINATION /usr/bin)
++install(TARGETS cupdatecursor DESTINATION ${CMAKE_INSTALL_BINDIR})
+diff --git a/polkit-agent/CMakeLists.txt b/polkit-agent/CMakeLists.txt
+index cb858d4..8a28947 100644
+--- a/polkit-agent/CMakeLists.txt
++++ b/polkit-agent/CMakeLists.txt
+@@ -35,7 +35,7 @@ add_custom_target(polkit-agent-translations DEPENDS ${QM_FILES} SOURCES ${TS_FIL
+ add_dependencies(cutefish-polkit-agent polkit-agent-translations)
+ 
+ install(TARGETS cutefish-polkit-agent
+-    DESTINATION /usr/bin
++    DESTINATION ${CMAKE_INSTALL_BINDIR}
+     COMPONENT Runtime
+ )
+ 
+@@ -45,4 +45,4 @@ cutefish-polkit-agent.desktop
+     COMPONENT Runtime
+ )
+ 
+-install(FILES ${QM_FILES} DESTINATION /usr/share/cutefish-polkit-agent/translations)
+\ No newline at end of file
++install(FILES ${QM_FILES} DESTINATION /usr/share/cutefish-polkit-agent/translations)
+diff --git a/powerman/CMakeLists.txt b/powerman/CMakeLists.txt
+index 3ea096e..1dec5c8 100644
+--- a/powerman/CMakeLists.txt
++++ b/powerman/CMakeLists.txt
+@@ -24,4 +24,4 @@ target_link_libraries(${TARGET}
+         Qt5::X11Extras
+ )
+ 
+-install(TARGETS ${TARGET} DESTINATION /usr/bin)
++install(TARGETS ${TARGET} DESTINATION ${CMAKE_INSTALL_BINDIR})
+diff --git a/screen-brightness/CMakeLists.txt b/screen-brightness/CMakeLists.txt
+index d62b2ce..6f1c02d 100644
+--- a/screen-brightness/CMakeLists.txt
++++ b/screen-brightness/CMakeLists.txt
+@@ -17,5 +17,5 @@ target_link_libraries(${PROJECT_NAME}
+         Qt5::Widgets
+ )
+ 
+-install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION /usr/bin)
++install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+ install(FILES org.cutefish.brightness.pkexec.policy DESTINATION /usr/share/polkit-1/actions/)
+diff --git a/session/CMakeLists.txt b/session/CMakeLists.txt
+index 2df3f5a..bbd6ee5 100644
+--- a/session/CMakeLists.txt
++++ b/session/CMakeLists.txt
+@@ -30,5 +30,5 @@ target_link_libraries(${TARGET}
+         KF5::WindowSystem
+ )
+ 
+-install(TARGETS ${TARGET} DESTINATION /usr/bin)
++install(TARGETS ${TARGET} DESTINATION ${CMAKE_INSTALL_BINDIR})
+ install(FILES cutefish-xsession.desktop DESTINATION /usr/share/xsessions/)
+diff --git a/settings-daemon/CMakeLists.txt b/settings-daemon/CMakeLists.txt
+index 0f2e57e..3f7948a 100644
+--- a/settings-daemon/CMakeLists.txt
++++ b/settings-daemon/CMakeLists.txt
+@@ -72,5 +72,5 @@ qt5_create_translation(QM_FILES ${TS_FILES})
+ add_custom_target(translations DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
+ add_dependencies(${TARGET} translations)
+ 
+-install(TARGETS ${TARGET} DESTINATION /usr/bin)
++install(TARGETS ${TARGET} DESTINATION ${CMAKE_INSTALL_BINDIR})
+ install(FILES ${QM_FILES} DESTINATION /usr/share/${TARGET}/translations)
+diff --git a/shutdown-ui/CMakeLists.txt b/shutdown-ui/CMakeLists.txt
+index 3b1da05..485d46b 100644
+--- a/shutdown-ui/CMakeLists.txt
++++ b/shutdown-ui/CMakeLists.txt
+@@ -20,4 +20,4 @@ add_custom_target(shutdown-translations DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
+ add_dependencies(cutefish-shutdown shutdown-translations)
+ install(FILES ${QM_FILES} DESTINATION /usr/share/cutefish-shutdown/translations)
+ 
+-install(TARGETS cutefish-shutdown RUNTIME DESTINATION /usr/bin)
+\ No newline at end of file
++install(TARGETS cutefish-shutdown RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+diff --git a/xembed-sni-proxy/CMakeLists.txt b/xembed-sni-proxy/CMakeLists.txt
+index 3375104..04eb2b2 100644
+--- a/xembed-sni-proxy/CMakeLists.txt
++++ b/xembed-sni-proxy/CMakeLists.txt
+@@ -76,4 +76,4 @@ target_link_libraries(cutefish-xembedsniproxy
+     ${X11_XTest_LIB}
+ )
+ 
+-install(TARGETS cutefish-xembedsniproxy DESTINATION /usr/bin)
++install(TARGETS cutefish-xembedsniproxy DESTINATION ${CMAKE_INSTALL_BINDIR})
+-- 
+2.32.0
+

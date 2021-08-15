@@ -1,0 +1,30 @@
+# Copyright 2021 Maxime Sorin <msorin@msorin.com>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=cutefishos project='core' ] cmake
+
+SUMMARY="System backend and start session and more"
+LICENCES="GPL-3"
+SLOT="0"
+MYOPTIONS=""
+DEPENDENCIES="
+    build+run:
+        kde-frameworks/kglobalaccel
+        kde-frameworks/kwindowsystem
+        sys-auth/polkit-qt
+        x11-libs/libX11
+        x11-libs/libXcursor
+        x11-libs/libXi
+        x11-libs/libXtst
+        x11-libs/libxcb
+        x11-libs/qtbase
+        x11-libs/qtdeclarative
+        x11-libs/qtx11extras
+        x11-utils/xcb-util
+        x11-utils/xcb-util-image
+    run:
+        media-sound/pulseaudio
+"
+
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/0001-Use-CMAKE_INSTALL_BINDIR-instead-of-hardcoded-path.patch" )
+

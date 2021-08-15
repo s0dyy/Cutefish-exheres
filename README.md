@@ -6,7 +6,7 @@ https://cutefishos.com/
 **Work in progress :**
 
 - [ ] cutefish-calculator
-- [ ] cutefish-core
+- [X] cutefish-core
 - [X] cutefish-dock
 - [X] cutefish-filemanager
 - [X] cutefish-icons
