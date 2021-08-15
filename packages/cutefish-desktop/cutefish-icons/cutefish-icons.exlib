@@ -1,0 +1,11 @@
+# Copyright 2021 Maxime Sorin <msorin@msorin.com>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=cutefishos project=icons ] cmake
+
+SUMMARY="System default icon theme, based on vinceliuice's whitesur"
+LICENCES="GPL-3"
+SLOT="0"
+MYOPTIONS=""
+DEPENDENCIES=""
+
